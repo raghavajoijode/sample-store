@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "target": "es5",                          // Ensure compatibility with older browsers (or Node versions)
+      "module": "es6",                          // Use ES6 modules
+      "baseUrl": "../ui.frontend",              // Adjusted path (check if this works with your project structure)
+      "removeComments": true,                   // Remove comments from compiled code
+      "allowJs": true,                          // Allow JavaScript files
+      "preserveConstEnums": true,               // Keep const enums
+      "allowSyntheticDefaultImports": true,     // Allow default imports in JavaScript
+      "sourceMap": true,                        // Enable source maps
+      "skipLibCheck": true,                     // Skips type checking for declaration files to speed up build
+      "esModuleInterop": true,                  // Enable interop between CommonJS and ES modules
+      "strict": true,                           // Enable all strict type-checking options
+      "moduleResolution": "node",               // Ensure that modules are resolved like in Node.js
+      "resolveJsonModule": true,                // Allow importing .json files
+      "noEmitOnError": true,                    // Prevent emitting files if there are errors
+      "types": ["node"]                         // Ensure the type definitions for Node.js are loaded
+    },
+    "include": [
+      "./src/**/*.ts"                           // Make sure TypeScript knows which files to include
+    ]
+  }
+  
