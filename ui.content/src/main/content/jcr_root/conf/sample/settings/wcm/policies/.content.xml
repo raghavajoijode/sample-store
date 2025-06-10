@@ -303,6 +303,16 @@
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
+                <policy_8232720927915
+                        jcr:lastModified="{Date}2025-05-27T11:09:43.207+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="All sample components"
+                        sling:resourceType="wcm/core/components/policy/policy"
+                        components="group:News Portal - Content"
+                        layoutDisabled="false">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_8232720927915>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650

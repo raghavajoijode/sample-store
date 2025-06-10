@@ -1,0 +1,16 @@
+<div class="cmp-products" data-cmp-is="products">
+    <div class="row" data-sly-use.model="com.sample.portal.core.models.ProductsModel">
+        <sly data-sly-list.product="${model.products}">
+            <div class="col-sm-3 my-4">
+                <div class="card">
+                    <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.title}</h5>
+                        <p class="card-text">${product.description}</p>
+                        <a href="${properties.productBasePath}.${product.id}.html" class="btn btn-primary">${properties.viewDetailsLabel}</a>
+                    </div>
+                </div>
+            </div>
+        </sly>
+    </div>
+</div>
