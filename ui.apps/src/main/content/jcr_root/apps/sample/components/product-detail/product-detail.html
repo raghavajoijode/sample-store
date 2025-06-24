@@ -1,0 +1,63 @@
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='sample.bootstrap-icons'}">
+</sly>
+<div class="container mt-5">
+    <div class="row" data-sly-use.model="com.sample.portal.core.models.ProductModel"
+         data-sly-test.product="${model.product}">
+        <!-- Product Images -->
+        <div class="col-md-6 mb-4" data-sly-test.images="${product.images}">
+            <img src="${images[0]}" alt="Product" class="img-fluid rounded mb-3 product-image" id="mainImage">
+            <div class="d-flex justify-content-between" data-sly-list.image="${images}">
+                <img src="${image}" alt="Thumbnail ${imageList.count}" class="thumbnail rounded ${imageList.first ? 'active' : ''}" onclick="changeProductImage(event, this.src)">
+            </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-6">
+            <h2 class="mb-3" data-sly-test="${product.title}">${product.title}</h2>
+            <p class="text-muted mb-4" data-sly-test="${product.sku}">${properties.skuLabel}: ${product.sku}</p>
+            <div class="mb-3" data-sly-test="${product.price}">
+                <span class="h4 me-2">${properties.currencySymbol}${product.discountedPrice}</span>
+                <span class="text-muted"><s>${properties.currencySymbol}${product.price}</s></span>
+            </div>
+            <p class="mb-4" data-sly-test.desc="${product.description}">${desc}</p>
+            <div class="mb-4" data-sly-test.brand="${product.brand}">
+                <h5>${properties.brandLabel}: ${brand}</h5>
+            </div>
+            <div class="mb-4" data-sly-test.minimumOrderQuantity="${product.minimumOrderQuantity}">
+                <label for="quantity" class="form-label">${properties.quantityLabel}:</label>
+                <input type="number" class="form-control" id="quantity" value="${minimumOrderQuantity}" min="${minimumOrderQuantity}" style="width: 80px;">
+            </div>
+            <button class="btn btn-primary btn-lg mb-3 me-2">
+                <i class="bi bi-cart-plus"></i> ${properties.addToCartLabel}
+            </button>
+            <button class="btn btn-outline-secondary btn-lg mb-3">
+                <i class="bi bi-heart"></i> ${properties.wishListLabel}
+            </button>
+            <div class="mt-4">
+                <h5>${properties.keyFeaturesLabel}:</h5>
+                <ul>
+                    <li data-sly-test="${properties.availabilityStatus && product.availabilityStatus}">
+                        ${properties.availabilityStatus}: ${product.availabilityStatus}
+                    </li>
+                    <li data-sly-test="${properties.shippingInformation && product.shippingInformation}">
+                        ${properties.shippingInformation}: ${product.shippingInformation}
+                    </li>
+                    <li data-sly-test="${properties.warrantyInformation && product.warrantyInformation}">
+                        ${properties.warrantyInformation}: ${product.warrantyInformation}
+                    </li>
+                    <li data-sly-test="${properties.returnPolicy && product.returnPolicy}">
+                        ${properties.returnPolicy}: ${product.returnPolicy}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row" data-sly-test="${!product}" >
+        ${properties.productNotFoundMessage || 'Product not found.'}
+    </div>
+</div>
+
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.all @ categories='sample.product-detail'}">
+</sly>
